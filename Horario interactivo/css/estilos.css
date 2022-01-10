@@ -1,0 +1,45 @@
+table {
+    border-collapse: collapse;
+  }
+  
+  td,
+  th {
+    border: 1px solid black;
+  }
+  /* Utilizando únicamente pseudoselectores da color de fondo verde a las casillas que contien horas */
+  tbody tr td:first-child{background-color: green;}
+  
+  
+  /* Utilizando únicamente pseudoselectores da color de fondo amarillo a la celda de recreo */
+  tbody tr:nth-child(4) th{background-color: yellow;}
+  
+  /* Cambiar los estados de los enlaces para que:
+  
+   Nunca estén subrayados
+   Si están visitados se muestren en rojo
+   Si no están visitados se muestren en verde */
+  a{text-decoration: none;}
+  a:visited{color: red;}
+  a:link{color: green;}
+  a:hover{color: blue;}
+  
+  
+  /* Utilizando pseudoselectores hacer que cuando pasemos el ratón sobre la columna del viernes
+  aumente el tamaño de letra al doble */
+  tr th.ult-col:hover{font-size: 2em;}    /* He añadido class="ult-col" para poder arreglar lo visto en clase */
+  tr td.ult-col:hover{font-size: 2em;}
+  
+  
+  /* Utilizando Pseudoelementos Haz que la primera letra de los días tenga el doble de tamaño*/
+  thead tr th:nth-child(2):first-letter{font-size: 2em;}  
+  thead tr th:nth-child(3):first-letter{font-size: 2em;}
+  thead tr th:nth-child(4):first-letter{font-size: 2em;} /* Si seleccionaba todos los th la palabra horario también agrandaba su primera letra y solo se pedían los días */
+  thead tr th:nth-child(5):first-letter{font-size: 2em;}
+  thead tr th:nth-child(6):first-letter{font-size: 2em;}
+
+  /* Añade un borde rojo que esté separado 10 px a los campos obligatorios del input requiered  */
+  input:required{border: solid red; padding: 10px;}
+  
+  
+  /* Añade un * en rojo detrás de las etiquetas label */
+  label span{color: red;}
