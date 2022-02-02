@@ -1,0 +1,25 @@
+#indice a:link{
+    color: red;
+    text-decoration: none;
+}
+#indice li>a:hover{
+    color: grey;
+    text-transform: uppercase;
+    background-color: black;
+}
+#indice a:visited{
+    color: green;
+    font-style: italic;
+    text-decoration: none;
+}
+#piedepagina a:link{
+    color: rgb(12, 158, 114);
+    text-decoration: none;
+}
+#piedepagina a:hover{
+    background-color: black;
+    border-style: solid;
+    border-color: grey;
+    color: teal;
+    font-style: normal;
+}
