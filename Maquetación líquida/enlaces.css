@@ -16,6 +16,10 @@
     color: rgb(12, 158, 114);
     text-decoration: none;
 }
+#piedepagina a:visited{
+    color: white;
+    text-decoration: underline;
+}
 #piedepagina a:hover{
     background-color: black;
     border-style: solid;
