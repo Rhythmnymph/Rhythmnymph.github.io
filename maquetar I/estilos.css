@@ -1,0 +1,126 @@
+body{
+    padding: 5px;
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(119, 119, 119, 0.808);
+}
+
+#todo_arriba{
+    display: flex;
+    flex-direction: column;
+}
+
+#header{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    height: 60px;
+    width: 95%;
+    background-color: aquamarine;
+}
+
+#img_header{
+    width: 11%;
+    height: 95%;
+
+}
+
+#header #img_header #html5{
+    width: 95%;
+    height: 80%;
+}
+
+h2#h2_header{
+    color: grey;
+    
+}
+
+#enlaces_arriba{
+    background-color: rgb(24, 250, 54);
+    position: relative;
+    width: 95%;
+}
+
+#enlaces_arriba span{
+    display: flex;
+    justify-content: space-around;
+    padding: 10px;
+}
+
+a{
+    text-decoration: none;
+}
+
+
+div#img_pie_header{
+    width: 95%;
+    height: 100%;
+    
+}
+
+div#img_pie_header img{
+    height:  400px;
+    width: 100%;
+    
+}
+
+
+
+div#contenido{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 2000px;
+}
+
+div#casas{
+    height: 15%;
+    padding: 3px 10px;
+    border: rgb(230, 222, 176) 5px double;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: rgb(138, 101, 23);
+    overflow: auto;
+}
+
+img#conejo{
+    width: 70px;
+    
+}
+
+div#camping{
+    height: 15%;
+    padding: 3px 10px;
+    border: 5px double rgb(116, 236, 100);
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: darkgreen;
+    overflow: auto;
+}
+
+img#montaña{
+    width: 70px;
+}
+
+div#hoteles{
+    height: 15%;
+    padding: 3px 10px;
+    border: 5px rgb(22, 141, 238) double;
+    border-top-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    background-color: blue;
+    overflow: auto;
+}
+
+img#img3{
+    width: 70px;
+}
+
+#opiniones{
+    height: 20%;
+    padding: 3px 10px;
+    background-color: white;
+    border-top: black 10px solid;
+    border-bottom: black 10px solid;
+}
