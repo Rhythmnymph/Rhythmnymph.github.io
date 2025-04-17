@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROM de Aday</title>
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -38,20 +39,21 @@
     }
   </script>
 </head>
-<body class="bg-gray-100 text-gray-800 font-sans flex flex-col items-center justify-center min-h-screen px-4">
+<body class="bg-gradient-to-br from-blue-100 via-white to-purple-100 text-gray-800 font-sans flex flex-col items-center justify-center min-h-screen px-4">
   <header class="text-center mt-10 animate-fadeIn">
     <h1 class="text-5xl font-bold mb-4 animate-bounceIn">ROM de Aday</h1>
     <p class="text-xl">¿Tienes un problema técnico? ¡Habla con Chaty!</p>
   </header>
-  
-  <!-- Chatbase widget -->
-    <iframe
-  src="https://www.chatbase.co/chatbot-iframe/dbFZEoZuT2sGfc8E-JzA0"
-  width="80%"
-  style="height: 100%; min-height: 700px"
-  frameborder="0"
-  ></iframe>
 
+  <!-- Chatbase widget -->
+  <div class="w-full flex justify-center mt-10 animate-fadeIn">
+    <iframe
+      src="https://www.chatbase.co/chatbot-iframe/dbFZEoZuT2sGfc8E-JzA0"
+      width="80%"
+      style="height: 100%; min-height: 700px"
+      frameborder="0"
+    ></iframe>
+  </div>
 
   <div class="flex gap-4 flex-wrap justify-center mt-10 animate-fadeIn">
     <a href="https://wa.me/TUNUMERO" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl shadow-lg transition-all">📱 WhatsApp</a>
@@ -64,5 +66,3 @@
   </footer>
 </body>
 </html>
-
-
