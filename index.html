@@ -4,70 +4,46 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ROM de Aday</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            fadeIn: 'fadeIn 2s ease-out',
+            bounceIn: 'bounceIn 1s ease-out'
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            },
+            bounceIn: {
+              '0%': {
+                transform: 'scale(0.5)',
+                opacity: '0'
+              },
+              '60%': {
+                transform: 'scale(1.05)',
+                opacity: '1'
+              },
+              '100%': {
+                transform: 'scale(1)',
+                opacity: '1'
+              }
+            }
+          }
+        }
+      }
     }
-
-    header {
-      padding: 2rem 1rem 1rem;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-    }
-
-    p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 2rem;
-    }
-
-    .contact-links {
-      margin-top: 2rem;
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-
-    .contact-links a {
-      text-decoration: none;
-      color: white;
-      background-color: #0077ff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 10px;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
-
-    .contact-links a:hover {
-      background-color: #005fcc;
-    }
-
-    footer {
-      margin-top: 4rem;
-      font-size: 0.9rem;
-      color: #777;
-    }
-  </style>
+  </script>
 </head>
-<body>
-  <header>
-    <h1>ROM de Aday</h1>
-    <p>¿Tienes un problema técnico? ¡Habla con Chaty!</p>
+<body class="bg-gray-100 text-gray-800 font-sans flex flex-col items-center justify-center min-h-screen px-4">
+  <header class="text-center mt-10 animate-fadeIn">
+    <h1 class="text-5xl font-bold mb-4 animate-bounceIn">ROM de Aday</h1>
+    <p class="text-xl">¿Tienes un problema técnico? ¡Habla con Chaty!</p>
   </header>
-
+  
   <!-- Chatbase widget -->
     <iframe
   src="https://www.chatbase.co/chatbot-iframe/dbFZEoZuT2sGfc8E-JzA0"
@@ -76,15 +52,17 @@
   frameborder="0"
   ></iframe>
 
-  <div class="contact-links">
-    <a href="https://wa.me/TUNUMERO" target="_blank">📱 WhatsApp</a>
-    <a href="mailto:tucorreo@example.com">📧 Email</a>
-    <a href="https://instagram.com/tuinstagram" target="_blank">📸 Instagram</a>
+
+  <div class="flex gap-4 flex-wrap justify-center mt-10 animate-fadeIn">
+    <a href="https://wa.me/TUNUMERO" target="_blank" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl shadow-lg transition-all">📱 WhatsApp</a>
+    <a href="mailto:tucorreo@example.com" class="bg-green-500 hover:bg-green-600 text-white py-2 px-4 rounded-xl shadow-lg transition-all">📧 Email</a>
+    <a href="https://instagram.com/tuinstagram" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-xl shadow-lg transition-all">📸 Instagram</a>
   </div>
 
-  <footer>
+  <footer class="mt-20 text-sm text-gray-500 animate-fadeIn">
     <p>Creado con magia digital por Aday y Chaty ✨</p>
   </footer>
 </body>
 </html>
+
 
