@@ -6,13 +6,15 @@
   <title>ROM de Aday</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
           animation: {
             fadeIn: 'fadeIn 2s ease-out',
-            bounceIn: 'bounceIn 1s ease-out'
+            bounceIn: 'bounceIn 1s ease-out',
+            pulseSlow: 'pulse 3s ease-in-out infinite'
           },
           keyframes: {
             fadeIn: {
@@ -38,34 +40,82 @@
       }
     }
   </script>
+  <style>
+    #chat-window {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+      display: none;
+      z-index: 50;
+      flex-direction: column;
+    }
+  </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 via-white to-purple-100 text-gray-800 font-sans flex flex-col items-center justify-center min-h-screen px-4">
+<body class="bg-gradient-to-br from-blue-100 via-white to-purple-100 text-gray-800 font-sans flex flex-col items-center px-4">
   <header class="text-center mt-10 animate-fadeIn">
     <img src="romdeaday.png" alt="Logo de ROM de Aday" class="w-32 mx-auto mb-4 animate-bounceIn">
     <h1 class="text-5xl font-bold mb-4 animate-bounceIn">ROM de Aday</h1>
-    <p class="text-xl">¿Tienes un problema técnico? ¡Habla con Chaty!</p>
+    <p class="text-xl">¿Tienes un problema técnico? ¡Habla con Chaty o con Aday!</p>
   </header>
 
-  <!-- Chatbase widget -->
-  <div class="w-full flex justify-center mt-10 animate-fadeIn">
+  <section class="max-w-xl text-center mt-16 animate-fadeIn">
+    <h2 class="text-3xl font-bold mb-4">¿Y Aday quién es?</h2>
+    <p class="text-lg leading-relaxed">Hola, soy Aday. No soy una tienda ni un robot: soy alguien que sabe de tecnología y se esfuerza en explicártela con calma y con buen rollo. ROM de Aday es mi forma de ayudarte sin que te frustres, sin tecnicismos, sin prisas. Si Chaty no te lo soluciona, yo sí. Y si no puedo, lo buscamos juntos.</p>
+  </section>
+
+  <div class="mt-12 text-center max-w-2xl animate-fadeIn">
+    <p class="text-xl italic text-purple-700 font-semibold">“ROM de Aday no arregla móviles. Arregla el miedo a preguntar.”</p>
+  </div>
+
+  <!-- BOTONES DE CONTACTO PRINCIPALES -->
+  <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12 animate-fadeIn">
+    <div class="relative">
+      <button onclick="toggleChat(true)" class="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-xl shadow-lg">
+        💬 Habla con Chaty
+      </button>
+      <span class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulseSlow">¡Recomendado!</span>
+    </div>
+    <button onclick="toggleContact()" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl shadow-lg">
+      📬 Contacta con Aday
+    </button>
+  </div>
+
+  <!-- Chaty animado con Lottie -->
+  <div id="chaty-lottie" class="w-24 h-24 fixed bottom-28 right-6 z-40"></div>
+  <script>
+    lottie.loadAnimation({
+      container: document.getElementById('chaty-lottie'),
+      renderer: 'svg',
+      loop: true,
+      autoplay: true,
+      path: 'assets/chaty_honesto.json'
+    });
+  </script>
+
+  <!-- VENTANA DE CHAT FLOTANTE -->
+  <div id="chat-window" class="flex">
+    <div class="flex justify-between items-center bg-purple-600 text-white px-4 py-2">
+      <span class="font-bold">Chaty está escuchando...</span>
+      <button onclick="toggleChat(false); showContact()" class="text-white text-xl font-bold">×</button>
+    </div>
     <iframe
       src="https://www.chatbase.co/chatbot-iframe/dbFZEoZuT2sGfc8E-JzA0"
-      width="80%"
-      style="height: 100%; min-height: 700px"
+      width="100%"
+      height="100%"
       frameborder="0"
     ></iframe>
   </div>
 
-  <div class="flex gap-4 flex-wrap justify-center mt-10 animate-fadeIn">
-    <button onclick="document.getElementById('contact-form').classList.toggle('hidden')" class="bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-xl shadow-lg transition-all">📬 Contactar por Email</button>
-    <!--
-    <a href="https://instagram.com/tuinstagram" target="_blank" class="bg-pink-500 hover:bg-pink-600 text-white py-2 px-4 rounded-xl shadow-lg transition-all">📸 Instagram</a>
-    <a href="https://tiktok.com/@tutiktok" target="_blank" class="bg-black hover:bg-gray-800 text-white py-2 px-4 rounded-xl shadow-lg transition-all">🎵 TikTok</a>
-    -->
-  </div>
-
-  <div id="contact-form" class="hidden mt-6 w-full max-w-md animate-fadeIn">
+  <!-- FORMULARIO DE CONTACTO -->
+  <div id="contact-form" class="hidden mt-20 w-full max-w-md animate-fadeIn">
     <form action="https://formspree.io/f/mrbpvylb" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <h3 class="text-xl font-bold mb-4">📬 Escribe a Aday</h3>
       <div class="mb-4">
         <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre</label>
         <input name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Tu nombre" required>
@@ -89,5 +139,27 @@
   <footer class="mt-20 text-sm text-gray-500 animate-fadeIn">
     <p>Creado con magia digital por Aday y Chaty ✨</p>
   </footer>
+
+  <script>
+    function toggleChat(show) {
+      const chat = document.getElementById('chat-window');
+      if (show) {
+        chat.style.display = 'flex';
+      } else {
+        chat.style.display = 'none';
+      }
+    }
+
+    function showContact() {
+      document.getElementById('contact-form').classList.remove('hidden');
+      window.scrollTo({ top: document.getElementById('contact-form').offsetTop - 50, behavior: 'smooth' });
+    }
+
+    function toggleContact() {
+      const form = document.getElementById('contact-form');
+      form.classList.remove('hidden');
+      window.scrollTo({ top: form.offsetTop - 50, behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
