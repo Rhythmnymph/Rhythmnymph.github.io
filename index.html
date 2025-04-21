@@ -6,102 +6,98 @@
   <title>ROM de Aday</title>
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lottie-web@5.7.4/build/player/lottie.min.js"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          animation: {
-            fadeIn: 'fadeIn 2s ease-out',
-            bounceIn: 'bounceIn 1s ease-out',
-            pulseSlow: 'pulse 3s ease-in-out infinite'
-          },
-          keyframes: {
-            fadeIn: {
-              '0%': { opacity: 0 },
-              '100%': { opacity: 1 }
-            },
-            bounceIn: {
-              '0%': {
-                transform: 'scale(0.5)',
-                opacity: '0'
-              },
-              '60%': {
-                transform: 'scale(1.05)',
-                opacity: '1'
-              },
-              '100%': {
-                transform: 'scale(1)',
-                opacity: '1'
-              }
-            }
-          }
-        }
-      }
-    }
-  </script>
   <style>
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-image: linear-gradient(135deg, #e0f7fa, #f3e5f5);
+    }
+
     #chat-window {
       position: fixed;
       bottom: 80px;
       right: 20px;
-      width: 350px;
-      height: 500px;
+      width: 360px;
+      height: 520px;
       background: white;
       border-radius: 1rem;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
       overflow: hidden;
       display: none;
       z-index: 50;
       flex-direction: column;
     }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
   </style>
 </head>
-<body class="bg-gradient-to-br from-blue-100 via-white to-purple-100 text-gray-800 font-sans flex flex-col items-center px-4">
-  <header class="text-center mt-10 animate-fadeIn">
-    <img src="romdeaday.png" alt="Logo de ROM de Aday" class="w-32 mx-auto mb-4 animate-bounceIn">
-    <h1 class="text-5xl font-bold mb-4 animate-bounceIn">ROM de Aday</h1>
-    <p class="text-xl">¿Tienes un problema técnico? ¡Habla con Chaty o con Aday!</p>
+<body class="text-gray-800 font-sans">
+  <header class="text-center mt-20 px-4">
+    <img src="romdeaday.png" alt="Logo de ROM de Aday" class="w-32 mx-auto mb-4 fade-in">
+    <h1 class="text-5xl font-extrabold tracking-tight fade-in bg-gradient-to-r from-purple-600 to-blue-500 text-transparent bg-clip-text">ROM de Aday</h1>
+    <p class="text-xl mt-2 fade-in text-gray-600">Asistencia técnica sin complicaciones, con un toque humano.</p>
   </header>
 
-  <section class="max-w-xl text-center mt-16 animate-fadeIn">
-    <h2 class="text-3xl font-bold mb-4">¿Y Aday quién es?</h2>
-    <p class="text-lg leading-relaxed">Hola, soy Aday. No soy una tienda ni un robot: soy alguien que sabe de tecnología y se esfuerza en explicártela con calma y con buen rollo. ROM de Aday es mi forma de ayudarte sin que te frustres, sin tecnicismos, sin prisas. Si Chaty no te lo soluciona, yo sí. Y si no puedo, lo buscamos juntos.</p>
-  </section>
+  <main class="mt-24 space-y-20 px-6">
+    <section class="max-w-xl mx-auto text-center fade-in">
+      <h2 class="text-3xl font-bold mb-4 text-purple-700">¿Quién es Aday?</h2>
+      <p class="text-lg leading-relaxed text-gray-700">Hola, soy Aday. No soy una tienda ni un robot: soy alguien que sabe de tecnología y se esfuerza en explicártela con calma y con buen rollo. ROM de Aday es mi forma de ayudarte sin que te frustres, sin tecnicismos, sin prisas.</p>
+    </section>
 
-  <div class="mt-12 text-center max-w-2xl animate-fadeIn">
-    <p class="text-xl italic text-purple-700 font-semibold">“ROM de Aday no arregla móviles. Arregla el miedo a preguntar.”</p>
-  </div>
+    <section class="max-w-2xl mx-auto text-center fade-in">
+      <p class="text-xl italic text-purple-700 font-semibold">“ROM de Aday no arregla móviles. Arregla el miedo a preguntar.”</p>
+    </section>
 
-  <!-- BOTONES DE CONTACTO PRINCIPALES -->
-  <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mt-12 animate-fadeIn">
-    <div class="relative">
-      <button onclick="toggleChat(true)" class="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-xl shadow-lg">
-        💬 Habla con Chaty
-      </button>
-      <span class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulseSlow">¡Recomendado!</span>
-    </div>
-    <button onclick="toggleContact()" class="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-xl shadow-lg">
-      📬 Contacta con Aday
-    </button>
-  </div>
+    <section class="text-center fade-in">
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <div class="relative">
+          <button onclick="toggleChat(true)" class="bg-gradient-to-r from-purple-600 to-purple-800 hover:from-purple-700 hover:to-purple-900 text-white py-3 px-6 rounded-xl shadow-lg transition-all">
+            💬 Habla con Chaty
+          </button>
+          <span class="absolute -top-2 -right-2 bg-yellow-400 text-black text-xs font-bold px-2 py-1 rounded-full animate-pulse">¡Recomendado!</span>
+        </div>
+        <button onclick="toggleContact()" class="bg-gradient-to-r from-blue-600 to-blue-800 hover:from-blue-700 hover:to-blue-900 text-white py-3 px-6 rounded-xl shadow-lg transition-all">
+          📬 Contacta con Aday
+        </button>
+      </div>
+    </section>
 
-  <!-- Chaty animado con Lottie -->
-  <div id="chaty-lottie" class="w-24 h-24 fixed bottom-28 right-6 z-40"></div>
-  <script>
-    lottie.loadAnimation({
-      container: document.getElementById('chaty-lottie'),
-      renderer: 'svg',
-      loop: true,
-      autoplay: true,
-      path: 'assets/chaty_honesto.json'
-    });
-  </script>
+    <section id="contact-form" class="hidden fade-in max-w-md mx-auto">
+      <form action="https://formspree.io/f/mrbpvylb" method="POST" class="bg-white shadow-xl rounded-lg px-8 pt-6 pb-8">
+        <h3 class="text-xl font-bold mb-4 text-purple-700">📬 Escribe a Aday</h3>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre</label>
+          <input name="name" type="text" placeholder="Tu nombre" required class="shadow appearance-none border border-purple-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400">
+        </div>
+        <div class="mb-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
+          <input name="email" type="email" placeholder="tu@email.com" required class="shadow appearance-none border border-purple-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400">
+        </div>
+        <div class="mb-6">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Mensaje</label>
+          <textarea name="message" rows="4" placeholder="Cuéntame qué ocurre..." required class="shadow appearance-none border border-purple-300 rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:ring-2 focus:ring-purple-400"></textarea>
+        </div>
+        <div class="text-center">
+          <button type="submit" class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded">
+            Enviar
+          </button>
+        </div>
+      </form>
+    </section>
+  </main>
 
   <!-- VENTANA DE CHAT FLOTANTE -->
-  <div id="chat-window" class="flex">
-    <div class="flex justify-between items-center bg-purple-600 text-white px-4 py-2">
-      <span class="font-bold">Chaty está escuchando...</span>
+  <div id="chat-window" class="flex hidden flex-col">
+    <div class="flex justify-end items-center bg-purple-600 px-4 py-2">
       <button onclick="toggleChat(false); showContact()" class="text-white text-xl font-bold">×</button>
     </div>
     <iframe
@@ -112,42 +108,14 @@
     ></iframe>
   </div>
 
-  <!-- FORMULARIO DE CONTACTO -->
-  <div id="contact-form" class="hidden mt-20 w-full max-w-md animate-fadeIn">
-    <form action="https://formspree.io/f/mrbpvylb" method="POST" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
-      <h3 class="text-xl font-bold mb-4">📬 Escribe a Aday</h3>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="name">Nombre</label>
-        <input name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="text" placeholder="Tu nombre" required>
-      </div>
-      <div class="mb-4">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email</label>
-        <input name="email" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" type="email" placeholder="tu@email.com" required>
-      </div>
-      <div class="mb-6">
-        <label class="block text-gray-700 text-sm font-bold mb-2" for="message">Mensaje</label>
-        <textarea name="message" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" rows="4" placeholder="Cuéntame qué ocurre..." required></textarea>
-      </div>
-      <div class="flex items-center justify-between">
-        <button class="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-          Enviar
-        </button>
-      </div>
-    </form>
-  </div>
-
-  <footer class="mt-20 text-sm text-gray-500 animate-fadeIn">
+  <footer class="mt-24 text-center text-sm text-gray-500 py-6">
     <p>Creado con magia digital por Aday y Chaty ✨</p>
   </footer>
 
   <script>
     function toggleChat(show) {
       const chat = document.getElementById('chat-window');
-      if (show) {
-        chat.style.display = 'flex';
-      } else {
-        chat.style.display = 'none';
-      }
+      chat.style.display = show ? 'flex' : 'none';
     }
 
     function showContact() {
@@ -160,6 +128,16 @@
       form.classList.remove('hidden');
       window.scrollTo({ top: form.offsetTop - 50, behavior: 'smooth' });
     }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 </html>
